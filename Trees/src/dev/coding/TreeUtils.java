@@ -445,4 +445,27 @@ class TreeUtils {
         }
         return isBst;
     }
+
+    int convertBinaryTreeToSumTree(TreeNode root) {
+        /*
+         * https://www.geeksforgeeks.org/convert-a-given-tree-to-sum-tree/
+         */
+        int rootSum = 0;
+        if (root == null) {
+            return 0;
+        }
+        if (root.leftChild != null) {
+            rootSum = rootSum + root.leftChild.iData;
+        }
+        if (root.rightChild != null) {
+            rootSum = rootSum + root.rightChild.iData;
+        }
+        rootSum = rootSum + convertBinaryTreeToSumTree(root.leftChild) + convertBinaryTreeToSumTree(root.rightChild);
+        if (rootSum == 0) {
+            root.iData = 0;
+        } else {
+            root.iData += rootSum;
+        }
+        return rootSum;
+    }
 }

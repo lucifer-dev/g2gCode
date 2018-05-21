@@ -11,8 +11,8 @@ public class Main {
         TreeNode root = treeUtils.createTreeFromList(inputValues);
         System.out.print("Original Tree : ");
         treeUtils.printTreeLevelOrder(root);
-        treeUtils.connectNodesAtSameLevel(root);
-        System.out.print("\nConnected Tree : ");
-        treeUtils.printConnectedTree(root);
+        treeUtils.convertBinaryTreeToSumTree(root);
+        System.out.print("\nSum Tree : ");
+        treeUtils.printTreeLevelOrder(root);
     }
 }
